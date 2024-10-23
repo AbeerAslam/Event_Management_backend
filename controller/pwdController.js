@@ -1,4 +1,3 @@
-
 const db = require('../config/database'); // Import the database connection
 const bcrypt = require('bcrypt');
 const verifyPassword = (req, res) => {

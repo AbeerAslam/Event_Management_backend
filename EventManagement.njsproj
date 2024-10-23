@@ -32,6 +32,11 @@
     <Content Include="config\database.js">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="controller\CRUD_empController.js" />
+    <Content Include="controller\CRUD_logController.js" />
+    <Content Include="controller\logController.js">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="controller\pwdController.js">
       <SubType>Code</SubType>
     </Content>
@@ -40,6 +45,11 @@
     </Content>
     <Content Include="package.json" />
     <Content Include="README.md" />
+    <Content Include="routes\CRUD_empRoute.js" />
+    <Content Include="routes\CRUD_logRoute.js" />
+    <Content Include="routes\logRoute.js">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="routes\pwdRoute.js">
       <SubType>Code</SubType>
     </Content>
