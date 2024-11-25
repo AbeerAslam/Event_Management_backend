@@ -32,12 +32,30 @@
     <Content Include="config\database.js">
       <SubType>Code</SubType>
     </Content>
-    <Content Include="controller\CRUD_empController.js" />
-    <Content Include="controller\CRUD_logController.js" />
-    <Content Include="controller\logController.js">
+    <Content Include="controllers\CRUD_empController.js" />
+    <Content Include="controllers\CRUD_feedbackController.js">
       <SubType>Code</SubType>
     </Content>
-    <Content Include="controller\pwdController.js">
+    <Content Include="controllers\CRUD_logController.js" />
+    <Content Include="controllers\CRUD_marketingController.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="controllers\insertID_attController.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="controllers\logController.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="controllers\pwdController.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="controllers\query_Controller.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="controllers\showEvents_attController.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="controllers\showEvents_supController.js">
       <SubType>Code</SubType>
     </Content>
     <Content Include="h.js">
@@ -46,18 +64,36 @@
     <Content Include="package.json" />
     <Content Include="README.md" />
     <Content Include="routes\CRUD_empRoute.js" />
+    <Content Include="routes\CRUD_feedbackRoute.js">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="routes\CRUD_logRoute.js" />
+    <Content Include="routes\CRUD_marketingRoute.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="routes\insertID_attRoute.js">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="routes\logRoute.js">
       <SubType>Code</SubType>
     </Content>
     <Content Include="routes\pwdRoute.js">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="routes\query_Route.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="routes\showEvents_attRoute.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="routes\showEvents_supRoute.js">
+      <SubType>Code</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="config\" />
     <Folder Include="models\" />
-    <Folder Include="controller\" />
+    <Folder Include="controllers\" />
     <Folder Include="routes\" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsToolsV2.targets" />

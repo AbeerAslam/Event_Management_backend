@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const logsController = require('../controllers/logsController');
+const logsController = require('../controllers/CRUD_logController');
 
 // Define routes for read and delete operations
 router.get('/logs', logsController.getLogs);

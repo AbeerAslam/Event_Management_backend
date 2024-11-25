@@ -1,4 +1,5 @@
-const db = require('../db');
+const db = require('../config/database'); // Import the database connection
+const bcrypt = require('bcrypt');
 
 // Get all employees
 exports.getEmployees = (req, res) => {
@@ -22,23 +23,33 @@ exports.getEmployeeById = (req, res) => {
     });
 };
 
+
+
 // Create a new employee
 exports.createEmployee = (req, res) => {
     const { Full_Name, Phone, Email, Hire_Date, Role, Login_Password, Last_Login } = req.body;
-    const sql = 'INSERT INTO EMPLOYEES (Full_Name, Phone, Email, Hire_Date, Role, Login_Password, Last_Login) VALUES (?, ?, ?, ?, ?, ?, ?)';
-    db.query(sql, [Full_Name, Phone, Email, Hire_Date, Role, Login_Password, Last_Login], (err, result) => {
+    bcrypt.hash(Login_Password, 10, (err, hashedPassword) => {
         if (err) {
-            return res.status(500).json({ error: err });
+            console.error('Error hashing password:', err);
+            return;
         }
-        res.status(201).json({ message: 'Employee created successfully', id: result.insertId });
+   
+    db.query('INSERT INTO EMPLOYEES (Full_Name, Phone, Email, Hire_Date, Role,  Login_Password, Last_Login ) VALUES (?, ?, ?, ?, ?, ?, ?)',
+        [Full_Name, Phone, Email, Hire_Date, Role, hashedPassword, Last_Login], (err, result) => {
+            if (err) {
+                return res.status(500).json({ error: err });
+            }
+            res.status(201).json({ message: 'Employee created successfully', id: result.insertId });
+        });
     });
+    
 };
 
 // Update an employee by ID
 exports.updateEmployee = (req, res) => {
     const { Full_Name, Phone, Email, Hire_Date, Role, Login_Password, Last_Login } = req.body;
-    const sql = 'UPDATE EMPLOYEES SET Full_Name = ?, Phone = ?, Email = ?, Hire_Date = ?, Role = ?, Login_Password = ?, Last_Login = ? WHERE Emp_ID = ?';
-    db.query(sql, [Full_Name, Phone, Email, Hire_Date, Role, Login_Password, Last_Login, req.params.id], (err, result) => {
+    db.query('UPDATE EMPLOYEES SET Full_Name = ?, Phone = ?, Email = ?, Hire_Date = ?, Role = ?, Login_Password = ?, Last_Login = ? WHERE Emp_ID = ?',
+        [Full_Name, Phone, Email, Hire_Date, Role, Login_Password, Last_Login, req.params.id], (err, result) => {
         if (err) {
             return res.status(500).json({ error: err });
         }
@@ -48,8 +59,7 @@ exports.updateEmployee = (req, res) => {
 
 // Delete an employee by ID
 exports.deleteEmployee = (req, res) => {
-    const sql = 'DELETE FROM EMPLOYEES WHERE Emp_ID = ?';
-    db.query(sql, [req.params.id], (err, result) => {
+    db.query('DELETE FROM EMPLOYEES WHERE Emp_ID = ?', [req.params.id], (err, result) => {
         if (err) {
             return res.status(500).json({ error: err });
         }

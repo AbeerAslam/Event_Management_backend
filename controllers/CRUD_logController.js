@@ -1,9 +1,9 @@
-const db = require('../db');
+const db = require('../config/database'); // Import the database connection
 
 // Get all logs
 exports.getLogs = (req, res) => {
-    const sql = 'SELECT * FROM LOGS';
-    db.query(sql, (err, results) => {
+    
+    db.query('SELECT * FROM LOGS', (err, results) => {
         if (err) {
             return res.status(500).json({ error: err });
         }
@@ -13,8 +13,8 @@ exports.getLogs = (req, res) => {
 
 // Get a single log by ID
 exports.getLogById = (req, res) => {
-    const sql = 'SELECT * FROM LOGS WHERE Log_ID = ?';
-    db.query(sql, [req.params.id], (err, result) => {
+   
+    db.query('SELECT * FROM LOGS WHERE Log_ID = ?', [req.params.id], (err, result) => {
         if (err) {
             return res.status(500).json({ error: err });
         }
@@ -24,8 +24,8 @@ exports.getLogById = (req, res) => {
 
 // Delete a log by ID
 exports.deleteLog = (req, res) => {
-    const sql = 'DELETE FROM LOGS WHERE Log_ID = ?';
-    db.query(sql, [req.params.id], (err, result) => {
+    
+    db.query('DELETE FROM LOGS WHERE Log_ID = ?', [req.params.id], (err, result) => {
         if (err) {
             return res.status(500).json({ error: err });
         }
