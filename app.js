@@ -3,6 +3,9 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var app = express();
+const eventRequestRoutes = require('./routes/eventRequestRoutes');
+const eventRoutes = require('./routes/eventRoutes');
+const attendeeRegisterRoutes = require('./routes/attendeeRegisterRoutes')
 
 const cors = require('cors');
 app.use(cors()); // Enable CORS for all routes
@@ -47,7 +50,9 @@ app.use('/api', CRUD_mRoute);
 const CRUD_fRoute = require('./routes/CRUD_feedbackRoute');
 app.use('/api', CRUD_fRoute);
 
-
+app.use('/api/eventRequests', eventRequestRoutes);
+app.use('/api/events', eventRoutes);
+app.use('/api/attendees', attendeeRegisterRoutes);
 
 var port = 3000;
 app.listen(port, () => {
