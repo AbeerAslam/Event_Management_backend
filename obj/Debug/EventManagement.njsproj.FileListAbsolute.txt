@@ -1,3 +1,6 @@
 D:\Electives\Flutter\Projects\EventManagement\obj\Debug\EventManagement.njsproj.AssemblyReference.cache
 D:\Electives\Flutter\Projects\EventManagement\obj\Debug\EventManagement.njsproj.CoreCompileInputs.cache
 D:\Electives\Flutter\Projects\EventManagement\bin\Microsoft.NodejsTools.WebRole.dll
+D:\Electives\Flutter\Backend\obj\Debug\EventManagement.njsproj.AssemblyReference.cache
+D:\Electives\Flutter\Backend\obj\Debug\EventManagement.njsproj.CoreCompileInputs.cache
+D:\Electives\Flutter\Backend\bin\Microsoft.NodejsTools.WebRole.dll

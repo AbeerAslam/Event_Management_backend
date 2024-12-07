@@ -3,10 +3,6 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var app = express();
-const eventRequestRoutes = require('./routes/eventRequestRoutes');
-const eventRoutes = require('./routes/eventRoutes');
-const attendeeRegisterRoutes = require('./routes/attendeeRegisterRoutes')
-
 const cors = require('cors');
 app.use(cors()); // Enable CORS for all routes
 
@@ -50,11 +46,22 @@ app.use('/api', CRUD_mRoute);
 const CRUD_fRoute = require('./routes/CRUD_feedbackRoute');
 app.use('/api', CRUD_fRoute);
 
+const CRUD_emRoute = require('./routes/CRUD_emailRoute');
+app.use('/api', CRUD_emRoute);
+
+const eventRequestRoutes = require('./routes/eventRequestRoutes');
 app.use('/api/eventRequests', eventRequestRoutes);
+
+const eventRoutes = require('./routes/eventRoutes');
 app.use('/api/events', eventRoutes);
+
+const attendeeRegisterRoutes = require('./routes/attendeeRegisterRoutes')
 app.use('/api/attendees', attendeeRegisterRoutes);
 
+const cemp = require('./routes/Cempr')
+app.use('/api/emp', cemp);
+
 var port = 3000;
-app.listen(port, () => {
+app.listen(port, '0.0.0.0', () => {
     console.log(`Server is running on port ${port}`);
 });

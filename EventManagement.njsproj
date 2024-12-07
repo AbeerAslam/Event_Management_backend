@@ -28,8 +28,14 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include=".env">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="app.js" />
     <Content Include="config\database.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="controllers\Cemp.js">
       <SubType>Code</SubType>
     </Content>
     <Content Include="controllers\CRUD_empController.js" />
@@ -38,6 +44,12 @@
     </Content>
     <Content Include="controllers\CRUD_logController.js" />
     <Content Include="controllers\CRUD_marketingController.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="controllers\CRUD_emailController.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="controllers\eventRequestController.js">
       <SubType>Code</SubType>
     </Content>
     <Content Include="controllers\insertID_attController.js">
@@ -52,17 +64,21 @@
     <Content Include="controllers\query_Controller.js">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="controllers\resourceAllocation.js">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="controllers\showEvents_attController.js">
       <SubType>Code</SubType>
     </Content>
     <Content Include="controllers\showEvents_supController.js">
       <SubType>Code</SubType>
     </Content>
-    <Content Include="h.js">
-      <SubType>Code</SubType>
-    </Content>
     <Content Include="package.json" />
     <Content Include="README.md" />
+    <Content Include="routes\attendeeRegisterRoutes.js" />
+    <Content Include="routes\Cempr.js">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="routes\CRUD_empRoute.js" />
     <Content Include="routes\CRUD_feedbackRoute.js">
       <SubType>Code</SubType>
@@ -71,6 +87,11 @@
     <Content Include="routes\CRUD_marketingRoute.js">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="routes\CRUD_emailRoute.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="routes\eventRequestRoutes.js" />
+    <Content Include="routes\eventRoutes.js" />
     <Content Include="routes\insertID_attRoute.js">
       <SubType>Code</SubType>
     </Content>
